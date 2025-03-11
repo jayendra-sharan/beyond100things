@@ -7,11 +7,45 @@
 <body>
     <h1>Beyond 100 Things</h1>
     <h2>A no nonsense goal setting social network for you!</h2>
-    <div class="email-container">
-        <input type="email" placeholder="Enter your email" class="email-input" required>
-        <button class="btn">Join the Waitlist</button>
+    <div class="email-container" id="email-form">
+        <input type="email" placeholder="Enter your email" class="email-input" id="email-input" required>
+        <button class="btn" id="submit-button">Join the Waitlist</button>
+    </div>
+
+    <div id="success-message" style="display: none;">
+        <p>Thank you for signing up! We will notify you when we launch!</p>
     </div>
 
     <footer>&copy; 2025 My Website</footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        // Initialize EmailJS with your user ID
+        emailjs.init({
+            publicKey: '8LVXH19L7Jk6HbBs9'
+        });
+
+        document.getElementById('submit-button').addEventListener('click', function() {
+            var email = document.getElementById('email-input').value;
+
+            if (email) {
+                // Send email via EmailJS
+                var templateParams = {
+                    email: email,
+                };
+
+                emailjs.send('service_j1bfrlu', 'template_0jv6hyh', templateParams)  // Replace with your EmailJS service ID and template ID
+                    .then(function(response) {
+                        console.log('SUCCESS!', response);
+                        
+                        // Hide the form and show the success message
+                        document.getElementById('email-form').style.display = 'none';
+                        document.getElementById('success-message').style.display = 'block';
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            }
+        });
+    </script>
 </body>
 </html>
