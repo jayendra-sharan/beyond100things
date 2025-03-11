@@ -125,6 +125,15 @@ h2 {
 
 /* Media query for small screens */
 @media (max-width: 768px) {
+    body {
+        padding: 0 20px;
+    }
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 20px;
+    }
     .email-container {
         flex-direction: column; /* Stack vertically on small screens */
     }
@@ -142,7 +151,7 @@ h2 {
 /* Footer */
 footer {
     position: absolute;
-    bottom: 10px;
+    bottom: 40px;
     width: 100%;
     text-align: center;
     font-size: 14px;
