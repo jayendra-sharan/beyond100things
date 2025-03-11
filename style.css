@@ -1,0 +1,144 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full-screen background */
+body {
+    background: url('bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: 'Georgia', serif;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Dark overlay */
+    z-index: 1;
+}
+/* All other elements (text, buttons, etc.) */
+* {
+    position: relative; /* Ensure positioning is applied */
+    z-index: 2; /* All elements get a higher z-index than the overlay */
+}
+
+
+h1, h2 {
+    font-family: 'Georgia', serif;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: white;
+    background: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+h1 {
+    font-size: 84px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.btn {
+    font-size: 22px;
+    padding: 16px 32px;
+}
+
+/* Email input container */
+.email-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 10px; /* Add space between input and button */
+    flex-wrap: wrap; /* Allow stacking on small screens */
+}
+
+/* Styling the email input */
+.email-input {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    width: 250px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.email-input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+/* Focus effect */
+.email-input:focus {
+    border-color: #007BFF;
+}
+
+/* Button styling */
+.email-container .btn {
+    font-size: 20px;
+    padding: 14px 28px;
+    margin-top: 0px;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .email-container {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+
+    .email-input {
+        width: 100%; /* Make input take full width on small screens */
+        margin-bottom: 10px; /* Add some space between input and button */
+    }
+
+    .email-container .btn {
+        width: 100%; /* Make button take full width on small screens */
+    }
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
